@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import myphoto from './image/myphoto.jpg'
+import Popup from 'reactjs-popup';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className='popups'>
+            <h4>Popup Screen</h4>
+            <Popup trigger=
+                {<img src={myphoto} alt="" />} 
+                modal nested>
+                {
+                    close => (
+                        <div className='modal'>
+                            <div className='content'>
+                              <img src={myphoto} alt="" />
+                            </div>
+                            <div>
+                                <button onClick=
+                                    {() => close()}>
+                                        close
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
+            </Popup>
+        </div>
   );
 }
 
